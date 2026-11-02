@@ -5,6 +5,36 @@ Given N chocolates (N is even), the shop makes as many large boxes as possible a
 
 Check whether at least one small box is prepared.
 
+### Problem in Simple Words
+
+We have N chocolates (N is always even).
+
+We first make as many boxes of 4 chocolates as possible.
+
+Whatever chocolates are left, we use them to make boxes of 2 chocolates.
+
+Question: Will we be able to make at least one box of 2 chocolates?
+
+
+### How to Think (Approach)
+
+When we divide N by 4, the remainder tells us how many chocolates are left.Because N is even, the possible remainders are only:
+0 → nothing left → no small box
+2 → exactly 2 left → one small box
+So we only need to check:
+
+If N % 4 == 2 → YES
+
+Else → NO
+
+### Step-by-step Logic
+- Read T
+- For each test case:
+- Read N
+- Calculate N % 4
+- If remainder is 2 → YES
+- Else → NO
+
 **Input**
 - First line: T
 - Each test case: one integer N
@@ -26,10 +56,20 @@ After filling maximum number of boxes of size 4, the remainder is N % 4.
 - Remainder 0 → no small box → NO
 
 **Dry Run**
-- 14 → 14 % 4 = 2 → YES
-- 20 → 20 % 4 = 0 → NO
-- 2  → 2 % 4 = 2 → YES
-- 26 → 26 % 4 = 2 → YES
+- N = 14 → 14 ÷ 4 = 3 boxes (12 chocolates), remainder 2 → YES
+- N = 20 → 20 ÷ 4 = 5 boxes, remainder 0 → NO
+- N = 2  → 0 large boxes, remainder 2 → YES
+- N = 26 → 6 large boxes (24), remainder 2 → YES
+
+### Time Complexity (TC)
+
+O(T)
+
+Constant work per test case.
+
+### Space Complexity (SC)O(1)
+
+Only a few variables used.
 
 ### Solution (C++)
 ```cpp
